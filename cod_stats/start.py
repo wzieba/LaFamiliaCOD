@@ -18,8 +18,9 @@ CIKOD_PLAYERS = [
     ("Qubris#2232", Platform.BattleNet),
     ("gRabos123", Platform.PlayStation),
     ("ElRuto", Platform.Xbox),
-    # ("Kowalsiu", Platform.Steam),
     ("Darion_1993", Platform.PlayStation),
+    ("piodreq#2198", Platform.BattleNet),
+    ("Kowalsiu#2928", Platform.BattleNet),
 ]
 
 

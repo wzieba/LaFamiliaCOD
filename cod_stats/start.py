@@ -1,9 +1,8 @@
+import callofduty
+from callofduty import Mode, Platform, Title
 from quart import Quart, render_template
 
-import callofduty
-import best_weekly_player
-from callofduty import Mode, Platform, Title
-import asyncio
+from cod_stats import best_weekly_player
 
 app = Quart(__name__)
 

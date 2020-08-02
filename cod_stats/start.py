@@ -1,10 +1,12 @@
+import asyncio
+
 import callofduty
 from callofduty import Mode, Platform, Title
-from quart import Quart, render_template
+from flask import Flask, render_template
 
 from cod_stats import best_weekly_player
 
-app = Quart(__name__)
+app = Flask(__name__)
 
 CIKOD_PLAYERS = [
     ("tuksiarz", Platform.Xbox),
@@ -22,8 +24,6 @@ async def get_data():
     weekly_player = None
 
     for player_to_platform in CIKOD_PLAYERS:
-        total_hours = 0
-
         print("Getting" + player_to_platform.__str__())
         player = await client.GetPlayer(platform=player_to_platform[1], username=player_to_platform[0])
         profile = await player.profile(Title.ModernWarfare, Mode.Warzone)
@@ -40,10 +40,10 @@ async def get_data():
 
 
 @app.route('/')
-async def hello_world():
-    # complete = await get_data()
-    # return await render_template("index.html", best_player=complete)
-    return await render_template("index.html")
+def hello_world():
+    complete = asyncio.run(get_data())
+
+    return render_template("index.html", best_player=complete)
 
 
 if __name__ == "__main__":

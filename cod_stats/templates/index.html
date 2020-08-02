@@ -54,6 +54,10 @@
             height: 200px;
         }
 
+        .table {
+            font-size: 25px;
+        }
+
     </style>
 
 </head>
@@ -97,23 +101,23 @@
                                          src="https://imgsvc.trackercdn.com/url/size(128),fit(cover)/https%3A%2F%2Ftrackercdn.com%2Fcdn%2Fcod.tracker.gg%2Fmodern-warfare%2Fimages%2Fplayer-avatar.jpg/image.jpg">
 
                                     <h3 class="text-uppercase mb-1 mt-3 text-white">
-                                        nazwa
+                                        {{ report.best_weekly_player.name }}
                                     </h3>
 
-                                    <div class="row mr-5 ml-5 mb-1 mt-3">
+                                    <div class="row mb-1 mt-3">
                                         <div class="col-sm">
-                                            <h3 class="points-blue col-sm font-weight-bold text-white">
-                                                123</h3>
+                                            <h3 class="points-blue col-sm font-weight-bold text-white text-nowrap">
+                                                {{ report.best_weekly_player.kills_in_week }}</h3>
                                             <h5>zabójstwa</h5>
                                         </div>
                                         <div class="col-sm">
-                                            <h3 class="points-red font-weight-bold text-uppercase text-white">
-                                                0.9</h3>
+                                            <h3 class="points-red font-weight-bold text-uppercase text-white text-nowrap">
+                                                {{'%0.2f'|format(report.best_weekly_player.kills_per_game|float)}}</h3>
                                             <h5>zabójstwa na grę</h5>
                                         </div>
                                         <div class="col-sm">
-                                            <h3 class="points-green font-weight-bold text-uppercase text-white">
-                                                123789</h3>
+                                            <h3 class="points-green font-weight-bold text-uppercase text-white text-nowrap">
+                                                {{ report.best_weekly_player.damage_given_in_week }}</h3>
                                             <h5>zadane obrażenia</h5>
                                         </div>
                                     </div>
@@ -125,7 +129,7 @@
                 </div>
             </div>
 
-            <!-- The best weapon-->
+            <!-- The best kar player-->
             <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-0 shadow h-100">
 
@@ -150,23 +154,26 @@
                                         </div>
                                     </div>
                                     <h3 class="text-uppercase mb-1 mt-3 text-white">
-                                        tuksiarz
+                                        {{ report.best_kar_player.name }}
                                     </h3>
 
-                                    <div class="row mr-5 ml-5 mb-1 mt-3">
+                                    <div class="row  mb-1 mt-3">
                                         <div class="col-sm">
                                             <h3 class="points-blue col-sm font-weight-bold text-white">
-                                                123</h3>
+                                                {{ report.best_kar_player.kills }}
+                                            </h3>
                                             <h5>zabójstwa</h5>
                                         </div>
                                         <div class="col-sm">
                                             <h3 class="points-red font-weight-bold text-uppercase text-white">
-                                                0.9</h3>
+                                                {{'%0.2f'|format(report.best_kar_player.ratio|float)}}
+                                            </h3>
                                             <h5>k/d ratio</h5>
                                         </div>
                                         <div class="col-sm">
                                             <h3 class="points-green font-weight-bold text-uppercase text-white">
-                                                123789</h3>
+                                                {{ report.best_kar_player.headshots }}
+                                            </h3>
                                             <h5>headshoty</h5>
                                         </div>
                                     </div>
@@ -178,7 +185,7 @@
                 </div>
             </div>
 
-            <!-- Player of the month-->
+            <!-- Gulager-->
             <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-0 shadow h-100">
 
@@ -188,7 +195,7 @@
 
                                 <div class="row mt-2">
                                     <div class="col-sm">
-                                        <h1 class="font-weight-bold text-uppercase mb-5 text-white">Gracz
+                                        <h1 class="font-weight-bold text-uppercase mb-5 text-white">Gułager
                                             tygodnia</h1>
                                     </div>
 
@@ -197,28 +204,28 @@
 
                                 <div class="text-center">
 
-                                    <img class="avatar"
-                                         src="https://imgsvc.trackercdn.com/url/size(128),fit(cover)/https%3A%2F%2Ftrackercdn.com%2Fcdn%2Fcod.tracker.gg%2Fmodern-warfare%2Fimages%2Fplayer-avatar.jpg/image.jpg">
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <img class="img-fluid card-image"
+                                                 src="{{ url_for('static', filename='images/gulag.jpg') }}">
+                                        </div>
+                                    </div>
 
                                     <h3 class="text-uppercase mb-1 mt-3 text-white">
-                                        nazwa
+                                        {{ report.best_weekly_gulag_player.name }}
                                     </h3>
 
-                                    <div class="row mr-5 ml-5 mb-1 mt-3">
+                                    <div class="row  mb-1 mt-3">
                                         <div class="col-sm">
                                             <h3 class="points-blue col-sm font-weight-bold text-white">
-                                                123</h3>
-                                            <h5>zabójstwa</h5>
+                                                {{ report.best_weekly_gulag_player.kills }}
+                                            </h3>
+                                            <h5>zabójstw w gułagu</h5>
                                         </div>
                                         <div class="col-sm">
                                             <h3 class="points-red font-weight-bold text-uppercase text-white">
-                                                0.9</h3>
-                                            <h5>zabójstwa na grę</h5>
-                                        </div>
-                                        <div class="col-sm">
-                                            <h3 class="points-green font-weight-bold text-uppercase text-white">
-                                                123789</h3>
-                                            <h5>zadane obrażenia</h5>
+                                                {{ report.best_weekly_gulag_player.deaths }}</h3>
+                                            <h5>śmierci w gułagu</h5>
                                         </div>
                                     </div>
 
@@ -229,7 +236,7 @@
                 </div>
             </div>
 
-            <!-- The best weapon-->
+            <!-- The points -->
             <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-0 shadow h-100">
 
@@ -239,8 +246,8 @@
 
                                 <div class="row mt-2">
                                     <div class="col-sm">
-                                        <h1 class="font-weight-bold text-white text-uppercase mb-5 ">Najwięcej u<span
-                                                style="color: #FF0000;">kar</span>ał</h1>
+                                        <h1 class="font-weight-bold text-white text-uppercase mb-5 ">Najszybszy
+                                            Punkciarz</h1>
                                     </div>
 
                                     <i class="text-right fas fa-crosshairs fa-2x text-gray-300"></i>
@@ -250,28 +257,30 @@
                                     <div class="row">
                                         <div class="col-sm">
                                             <img class="img-fluid card-image"
-                                                 src="{{ url_for('static', filename='images/kar.webp') }}">
+                                                 src="{{ url_for('static', filename='images/points.jpg') }}">
                                         </div>
                                     </div>
                                     <h3 class="text-uppercase mb-1 mt-3 text-white">
-                                        tuksiarz
+                                        {{ report.fastest_player.name }}
                                     </h3>
 
-                                    <div class="row mr-5 ml-5 mb-1 mt-3">
+                                    <div class="row  mb-1 mt-3">
                                         <div class="col-sm">
-                                            <h3 class="points-blue col-sm font-weight-bold text-white">
-                                                123</h3>
-                                            <h5>zabójstwa</h5>
+                                            <h3 class="points-blue col-sm font-weight-bold text-white text-nowrap">
+                                                {{ '%0.2f'|format(report.fastest_player.score_per_minute|float) }}</h3>
+                                            <h5>punktów na minutę</h5>
                                         </div>
                                         <div class="col-sm">
-                                            <h3 class="points-red font-weight-bold text-uppercase text-white">
-                                                0.9</h3>
-                                            <h5>k/d ratio</h5>
+                                            <h3 class="points-red font-weight-bold text-uppercase text-white text-nowrap">
+                                                {{ '%0.2f'|format(report.fastest_player.distance_traveled / 1000 /
+                                                1000|float)
+                                                }}k km</h3>
+                                            <h5>przebyty dystans</h5>
                                         </div>
                                         <div class="col-sm">
-                                            <h3 class="points-green font-weight-bold text-uppercase text-white">
-                                                123789</h3>
-                                            <h5>headshoty</h5>
+                                            <h3 class="points-green font-weight-bold text-uppercase text-white text-nowrap">
+                                                {{ report.fastest_player.score_total }}</h3>
+                                            <h5>suma punktów (lifetime)</h5>
                                         </div>
                                     </div>
 
@@ -281,6 +290,104 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="row mb-4">
+
+            <div class="col-md-9">
+                <div class="card border-0 shadow h-100">
+
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+
+                                <div class="row mt-2">
+                                    <div class="col-sm">
+                                        <h1 class="font-weight-bold text-white text-uppercase mb-5 ">Tabela
+                                            tygodniowa</h1>
+                                    </div>
+
+                                    <i class="text-right fas fa-crosshairs fa-2x text-gray-300"></i>
+                                </div>
+
+                                <table class="table table-striped table-dark">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Nazwa</th>
+                                        <th scope="col">Obrażeń</th>
+                                        <th scope="col">Headshotów</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for player in report.players_weekly %}
+                                    <tr>
+                                        <th scope="row">{{ loop.index }}</th>
+                                        <td>{{ player.name}}</td>
+                                        <td>{{ player.damage_given_in_week }}</td>
+                                        <td>{{ player.headshots_in_week }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card border-0 shadow h-100">
+
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+
+                                <div class="row mt-2">
+                                    <div class="col-sm">
+                                        <h1 class="font-weight-bold text-white text-uppercase mb-5 ">Kącik memów
+                                            (wkrótce)</h1>
+                                    </div>
+
+                                    <i class="text-right fas fa-crosshairs fa-2x text-gray-300"></i>
+                                </div>
+
+                                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img class="d-block w-100"
+                                                 src="{{ url_for('static', filename='images/kar.webp') }}"
+                                                 alt="First slide">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img class="d-block w-100"
+                                                 src="{{ url_for('static', filename='images/kar.webp') }}"
+                                                 alt="Second slide">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img class="d-block w-100"
+                                                 src="{{ url_for('static', filename='images/kar.webp') }}"
+                                                 alt="Third slide">
+                                        </div>
+                                    </div>
+                                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                                       data-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                                       data-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
 
     </div>

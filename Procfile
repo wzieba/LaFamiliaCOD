@@ -1,2 +1,2 @@
-web: gunicorn "cod_stats.start:app"
+web: gunicorn --pythonpath api "cod_stats.start:app"
 

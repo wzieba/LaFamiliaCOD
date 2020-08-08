@@ -1,0 +1,13 @@
+version: 2
+updates:
+
+  - package-ecosystem: "npm"
+    directory: "front/"
+    schedule:
+      interval: "daily"
+
+  - package-ecosystem: "pip"
+    directory: "api/"
+    schedule:
+      interval: "daily"
+

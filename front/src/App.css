@@ -14,3 +14,25 @@ h3 {
     color: white;
     font-weight: 600;
 }
+
+h4 {
+    color: white;
+    font-size: 24px;
+}
+
+.btn {
+    color: white;
+}
+
+.blue {
+    background-color: #126B8E
+}
+
+.yellow {
+    background-color: #9E934F
+}
+
+.red {
+    background-color: #D24E00
+}
+

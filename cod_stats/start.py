@@ -25,7 +25,7 @@ CIKOD_PLAYERS = [
 
 
 async def get_data() -> Report:
-    client = await callofduty.Login("pegoleg850@cartmails.com", "LaFamilia365")
+    client = await callofduty.Login(email="tuksiarz@gmail.com", password="Rover2016")
 
     profiles = [
         await client.GetPlayerProfile(platform=p_to_p[1], username=p_to_p[0], title=Title.ModernWarfare,
